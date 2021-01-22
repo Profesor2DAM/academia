@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+<title>Ejemplo Django</title>
+</head>
+<body>
+<div class="jumbotron">
+		<div class="container text-center">
+    
+			<h1>Empresa Colegios de Cádiz</h1>
+      {% load static %}
+      <img src="{% static 'img/logo.png' %}"/>
+		</div>
+	</div>
+
+<ul class="navbar-nav">
+{% if not request.user.is_authenticated %}
+<li class="nav-item">
+<a class="nav-link" href="{% url 'login' %}">Login</a>
+</li>
+<p>   
+<li class="nav-item">
+<a class="nav-link" href="{% url 'registro' %}">Registro</a>
+</li>
+{% else %}
+<li class="nav-item">
+<a class="nav-link" href="{% url 'logout' %}">Salir</a>
+</li>
+{% endif %}
+</ul>
+  
+<div class="container">
+		<br />
+		<div class="panel panel-default">
+			<div class="panel-heading">
+      {% if employees %}
+      <ul>
+        {% for e in employees %}
+          <li> {{ e }} <a href="{% url 'EmployeeDetail' e.pk %}">Info</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+            <p>There aren´t employees in our system. </p>
+    {% endif %}
+
+      </div>
+      </div>
+      <p>
+       <div class="col-lg-1">                            
+            <a href="{% url 'informe_pdf' %}" class="btn btn-info btn-block">
+                <span class="glyphicon glyphicon-file"></span>
+            </a>                          
+        </div>    
+			</p>
+    
+
+</div>
+</body>
+</html>

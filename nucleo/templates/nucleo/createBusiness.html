@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+<title>Ejemplo Django</title>
+</head>
+<body>
+<div class="jumbotron">
+		<div class="container text-center">
+			<h1>Crear Empresa</h1>
+		</div>
+	</div>
+
+  
+<div class="container">
+		<br />
+		<div class="panel panel-default">
+			<div class="panel-heading">
+        <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+        <label>Nombre *</label>
+        <div class="input-group">
+        {{form.name}}
+        </div>
+        <div class="form-group">
+        <label>City *</label>
+        <div class="city-group">
+        {{form.city}}
+        </div>
+        </br>
+        <input type="submit" class="btn btn-primary" value="Insertar Empresa"/>
+        </form>
+        </div>
+    </div>
+    </body>
+    </html> 
+

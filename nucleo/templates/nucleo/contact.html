@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+<title>Ejemplo Django</title>
+</head>
+<body>
+<div class="jumbotron">
+		<div class="container text-center">
+			<h1>Formulario de contacto</h1>
+		</div>
+	</div>
+
+
+  
+<div class="container">
+		<br />
+		<div class="panel panel-default">
+			<div class="panel-heading">
+        <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+        <label>Nombre *</label>
+        <div class="input-group">
+        {{form.name}}
+        </div>
+    {{form.name.errors}}
+    </div>
+    <div class="form-group">
+    <label>Email *</label>
+    <div class="email-group">
+    {{form.email}}
+    </div>
+    {{form.email.errors}}
+    </div>
+    <div class="form-group">
+    <label>Contenido *</label>
+    <div class="textarea-group">
+    {{form.content}}
+    </div>
+    {{form.content.errors}}
+    </div>
+    <input type="submit" class="btn btn-primary" value="Enviar" />
+    </form>
+    {% if 'ok' in request.GET %}
+    <p><b>
+    Message sended correctly
+    </b></p>
+    {% endif %}
+    </div>
+    </div>
+    </body>
+    </html> 
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>List Employees</title>
+</head>
+<body>
+{% load static %}
+<img src="{% static 'logo.jpg' %}" />
+<script src="{% static 'js/funciones.js' %}"> </script> 
+<ul>
+    <li><a href='Business'>Business</a></li>
+</ul>
+{% if employees %}
+<ul>
+    {% for e in employees %}
+    <li> {{ e }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+        <p>There aren´t employees in our system. </p>
+{% endif %}
+<button onclick="mostrarAlerta('A good employee')"> Show message </button>
+</body>
+</html> 
